@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <title>Mosteiro de São Bento</title>
+  <meta name="description" content="Mosteiro de São Bento - Quiz Devocional" />
+
+  <!-- Google Font: Geist -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Preload Essential Assets -->
+  <link rel="preload" as="image" href="assets/images/kit-sao-bento.webp" />
+  <link rel="preload" as="image" href="assets/images/kit-aguarde.webp" />
+  <link rel="preload" as="image" href="assets/images/header-logo.png" />
+  <link rel="preload" as="image" href="assets/images/poster1.jpg" />
+  <link rel="preload" as="image" href="assets/images/poster2.jpg" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="font-sans antialiased">
+  <div class="quiz-wrapper">
+
+    <!-- STEP 1: WELCOME SCREEN -->
+    <div id="step-1" class="quiz-step" style="background-color: #FEF9E9;">
+      <div class="min-h-screen flex flex-col animate-fadeIn">
+        <div class="flex flex-col gap-0 px-4 pt-2 pb-0.5 text-center">
+          <p style="color: rgb(112, 60, 0);" class="text-base font-extrabold text-balance leading-tight">Olá, Devoto! Preparamos algo especial para fortalecer sua fé.</p>
+          <p style="color: rgb(117, 63, 0);" class="text-xs font-semibold">O Mosteiro de São Bento tem um <strong>presente para você.</strong></p>
+        </div>
+        <div class="flex-auto flex items-center justify-center px-3">
+          <div class="w-full max-w-[360px]">
+            <img alt="Kit Bênção de São Bento" width="360" height="350" class="w-full h-auto" src="assets/images/kit-sao-bento.webp" />
+          </div>
+        </div>
+        <div class="px-4 pb-1.5">
+          <button type="button" onclick="goToStep(2)" style="background-color: rgb(103, 57, 4); color: rgb(255, 255, 255); box-shadow: 0 6px 8px -1px rgba(79, 39, 13, 0.4), 0 4px 6px -1px rgba(79, 39, 13, 0.3);" class="w-full py-4 text-center font-extrabold text-base rounded-xl transition-all hover:translate-y-[-2px] hover:shadow-lg active:translate-y-0 animate-pulse-button">
+            RESPONDER QUESTIONÁRIO
+          </button>
+        </div>
+        <div class="px-4 pb-2">
+          <div class="bg-white rounded-xl shadow-sm p-2 flex flex-col gap-1 items-center text-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open flex-none"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg>
+            <div class="text-[11px] font-extrabold leading-tight">
+              <p style="color: rgb(87, 45, 5);">Mosteiro de São Bento</p>
+            </div>
+            <div style="color: rgb(87, 45, 5);" class="text-[10px] font-semibold leading-snug">
+              <p>O <strong>Mosteiro de São Bento</strong> é um espaço de fé e tradição que, além das celebrações, oferece <strong>itens religiosos</strong> aos fiéis para fortalecer sua devoção.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2: VIDEO 1 (MICRO-VSL 1) -->
+    <div id="step-2" class="quiz-step hidden" style="background-color: #FEF9E9;">
+      <div class="min-h-screen flex flex-col animate-fadeIn">
+        <div class="px-5 pt-6 pb-3 flex justify-center">
+          <img src="assets/images/header-logo.png" alt="Mosteiro de São Bento" width="160" height="32" style="width: 160px; height: auto;" />
+        </div>
+        <div class="px-5 pb-4">
+          <div class="w-full bg-gray-200 rounded-full h-3.5 overflow-hidden">
+            <div id="progress-bar-2" style="width: 100%; background-image: linear-gradient(to right, rgb(128, 68, 0), rgb(102, 49, 0)); animation: progressBar 300ms ease-out forwards;" class="h-3.5 rounded-full origin-left"></div>
+          </div>
+        </div>
+        <div class="px-5 pb-3 text-center">
+          <p style="color: rgb(120, 67, 18);" class="text-sm font-extrabold">📿 (Assista o vídeo abaixo para entender sobre nossos kits). 📿</p>
+        </div>
+        <div class="px-5 pb-4 flex justify-center">
+          <div style="aspect-ratio: 9 / 16;" class="w-full max-w-[200px] md:max-w-[240px] relative rounded-xl overflow-hidden shadow-md bg-black">
+            <video id="video-step-2" playsinline webkit-playsinline loop muted autoplay poster="assets/images/poster1.jpg" class="w-full h-full object-cover">
+              <source src="assets/videos/video1.mp4" type="video/mp4">
+              <source src="https://i.imgur.com/186Bh01.mp4" type="video/mp4">
+            </video>
+            <div id="unmute-overlay-2" class="vturb-unmute-overlay" onclick="toggleUnmute(2)">
+              <div class="vturb-unmute-pill animate-bounce-subtle">
+                <span class="vturb-pulse-dot"></span>
+                <span>🔊 CLIQUE PARA ATIVAR O SOM</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="px-5 pb-3 text-center">
+          <p style="color: rgb(107, 57, 4);" class="text-base font-extrabold">Escute o nosso querido padre.</p>
+        </div>
+        <div class="px-5 pb-3 text-center">
+          <p style="color: rgb(107, 57, 4);" class="text-base font-extrabold">Responda o questionário para obter seu kit devocional</p>
+        </div>
+        <div class="px-5 pb-4 text-center">
+          <p style="color: rgb(107, 57, 4);" class="text-sm font-semibold leading-relaxed">
+            📿 Como recompensa, no final do questionário você receberá um <span style="color: rgb(117, 47, 0);" class="font-extrabold">Kit de São Bento</span>, com terço, água benta e livro, para <span style="color: rgb(133, 60, 0);" class="font-extrabold">fortalecer sua devoção!</span>
+          </p>
+        </div>
+        <div class="px-5 pb-6">
+          <button type="button" onclick="goToStep(3)" style="background-color: rgb(103, 57, 4); color: rgb(255, 255, 255); box-shadow: 0 4px 6px -1px rgba(79, 39, 13, 0.3), 0 2px 4px -1px rgba(79, 39, 13, 0.2);" class="w-full py-4 text-center font-extrabold text-base rounded-xl transition-all hover:translate-y-[-2px] hover:shadow-lg active:translate-y-0">
+            CONTINUAR QUESTIONÁRIO
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 3: QUESTION 1 -->
+    <div id="step-3" class="quiz-step hidden" style="background-color: #FEF9E9;">
+      <div class="min-h-screen flex flex-col animate-fadeIn">
+        <div class="px-5 pt-6 pb-3 text-center">
+          <p style="color: rgb(107, 57, 4);" class="text-base font-extrabold">Mosteiro de São Bento</p>
+        </div>
+        <div class="px-5 pb-4">
+          <div class="w-full bg-gray-200 rounded-full h-3.5 overflow-hidden">
+            <div id="progress-bar-3" style="width: 100%; background-image: linear-gradient(to right, rgb(128, 68, 0), rgb(102, 49, 0)); animation: progressBar 300ms ease-out forwards;" class="h-3.5 rounded-full origin-left"></div>
+          </div>
+        </div>
+        <div class="px-5 pb-4">
+          <div style="border-color: rgb(107, 57, 4);" class="flex items-center gap-3 p-3 border-2 rounded-xl">
+            <div style="color: rgb(107, 57, 4);" class="flex-none pl-1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg>
+            </div>
+            <div class="flex-auto">
+              <div class="text-sm font-extrabold leading-none mb-1">
+                <p>DEVOÇÃO</p>
+              </div>
+              <div class="text-xs font-bold">
+                <p>ACUMULADO</p>
+              </div>
+            </div>
+            <div style="background-color: rgb(146, 74, 7); color: white;" class="flex-none px-3 py-1.5 rounded-lg">
+              <p class="text-2xl font-extrabold leading-none">25%</p>
+            </div>
+          </div>
+        </div>
+        <div class="px-5 pb-4 text-center">
+          <p class="text-base font-extrabold leading-tight">Quantas vezes por semana você reza o terço de São Bento?</p>
+        </div>
+        <div class="px-5 pb-6 flex flex-col gap-3">
+          <button type="button" onclick="selectOptionAndGo(4, this)" class="flex items-center gap-4 p-3 border rounded-xl shadow-lg transition-all hover:scale-[1.025] active:scale-[0.97] bg-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash-2 flex-none"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg>
+            <div class="flex-auto text-center"><p class="leading-none font-bold">Nunca</p></div>
+          </button>
+          <button type="button" onclick="selectOptionAndGo(4, this)" class="flex items-center gap-4 p-3 border rounded-xl shadow-lg transition-all hover:scale-[1.025] active:scale-[0.97] bg-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar flex-none"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg>
+            <div class="flex-auto text-center"><p class="leading-none font-bold">1-2x por semana</p></div>
+          </button>
+          <button type="button" onclick="selectOptionAndGo(4, this)" class="flex items-center gap-4 p-3 border rounded-xl shadow-lg transition-all hover:scale-[1.025] active:scale-[0.97] bg-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bookmark flex-none"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path></svg>
+            <div class="flex-auto text-center"><p class="leading-none font-bold">3-5x por semana</p></div>
+          </button>
+          <button type="button" onclick="selectOptionAndGo(4, this)" class="flex items-center gap-4 p-3 border rounded-xl shadow-lg transition-all hover:scale-[1.025] active:scale-[0.97] bg-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-check flex-none"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"></path><path d="m9 9.5 2 2 4-4"></path></svg>
+            <div class="flex-auto text-center"><p class="leading-none font-bold">Diariamente</p></div>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 4: QUESTION 2 -->
+    <div id="step-4" class="quiz-step hidden" style="background-color: #FEF9E9;">
+      <div class="min-h-screen flex flex-col animate-fadeIn">
+        <div class="px-5 pt-6 pb-3 text-center">
+          <p style="color: rgb(107, 57, 4);" class="text-base font-extrabold">Mosteiro de São Bento</p>
+        </div>
+        <div class="px-5 pb-4">
+          <div class="w-full bg-gray-200 rounded-full h-3.5 overflow-hidden">
+            <div id="progress-bar-4" style="width: 100%; background-image: linear-gradient(to right, rgb(128, 68, 0), rgb(102, 49, 0)); animation: progressBar 300ms ease-out forwards;" class="h-3.5 rounded-full origin-left"></div>
+          </div>
+        </div>
+        <div class="px-5 pb-4">
+          <div style="border-color: rgb(107, 57, 4);" class="flex items-center gap-3 p-3 border-2 rounded-xl">
+            <div style="color: rgb(107, 57, 4);" class="flex-none pl-1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg>
+            </div>
+            <div class="flex-auto">
+              <div class="text-sm font-extrabold leading-none mb-1">
+                <p>DEVOÇÃO</p>
+              </div>
+              <div class="text-xs font-bold">
+                <p>ACUMULADO</p>
+              </div>
+            </div>
+            <div style="background-color: rgb(146, 74, 7); color: white;" class="flex-none px-3 py-1.5 rounded-lg">
+              <p class="text-2xl font-extrabold leading-none">55%</p>
+            </div>
+          </div>
+        </div>
+        <div class="px-5 pb-4 text-center">
+          <p class="text-base font-extrabold leading-tight">Você conhece a oração de São Bento para proteção?</p>
+        </div>
+        <div class="px-5 pb-6 flex flex-col gap-3">
+          <button type="button" onclick="selectOptionAndGo(5, this)" class="flex items-center gap-4 p-3 border rounded-xl shadow-lg transition-all hover:scale-[1.025] active:scale-[0.97] bg-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash-2 flex-none"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg>
+            <div class="flex-auto text-center"><p class="leading-none font-bold">Não conheço</p></div>
+          </button>
+          <button type="button" onclick="selectOptionAndGo(5, this)" class="flex items-center gap-4 p-3 border rounded-xl shadow-lg transition-all hover:scale-[1.025] active:scale-[0.97] bg-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar flex-none"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg>
+            <div class="flex-auto text-center"><p class="leading-none font-bold">Já ouvi falar</p></div>
+          </button>
+          <button type="button" onclick="selectOptionAndGo(5, this)" class="flex items-center gap-4 p-3 border rounded-xl shadow-lg transition-all hover:scale-[1.025] active:scale-[0.97] bg-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-check flex-none"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"></path><path d="m9 9.5 2 2 4-4"></path></svg>
+            <div class="flex-auto text-center"><p class="leading-none font-bold">Uso diariamente</p></div>
+          </button>
+          <button type="button" onclick="selectOptionAndGo(5, this)" class="flex items-center gap-4 p-3 border rounded-xl shadow-lg transition-all hover:scale-[1.025] active:scale-[0.97] bg-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open flex-none"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg>
+            <div class="flex-auto text-center"><p class="leading-none font-bold">Recito de memória</p></div>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 5: QUESTION 3 -->
+    <div id="step-5" class="quiz-step hidden" style="background-color: #FEF9E9;">
+      <div class="min-h-screen flex flex-col animate-fadeIn">
+        <div class="px-5 pt-6 pb-3 text-center">
+          <p style="color: rgb(107, 57, 4);" class="text-base font-extrabold">Mosteiro de São Bento</p>
+        </div>
+        <div class="px-5 pb-4">
+          <div class="w-full bg-gray-200 rounded-full h-3.5 overflow-hidden">
+            <div id="progress-bar-5" style="width: 100%; background-image: linear-gradient(to right, rgb(128, 68, 0), rgb(102, 49, 0)); animation: progressBar 300ms ease-out forwards;" class="h-3.5 rounded-full origin-left"></div>
+          </div>
+        </div>
+        <div class="px-5 pb-4">
+          <div style="border-color: rgb(107, 57, 4);" class="flex items-center gap-3 p-3 border-2 rounded-xl">
+            <div style="color: rgb(107, 57, 4);" class="flex-none pl-1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg>
+            </div>
+            <div class="flex-auto">
+              <div class="text-sm font-extrabold leading-none mb-1">
+                <p>DEVOÇÃO</p>
+              </div>
+              <div class="text-xs font-bold">
+                <p>ACUMULADO</p>
+              </div>
+            </div>
+            <div style="background-color: rgb(146, 74, 7); color: white;" class="flex-none px-3 py-1.5 rounded-lg">
+              <p class="text-2xl font-extrabold leading-none">85%</p>
+            </div>
+          </div>
+        </div>
+        <div class="px-5 pb-4 text-center">
+          <p style="color: rgb(107, 57, 4);" class="text-base font-semibold leading-relaxed">Você já utilizou água benta de São Bento em sua casa ou objetos?</p>
+        </div>
+        <div class="px-5 pb-6 flex flex-col gap-3">
+          <button type="button" onclick="selectOptionAndGo(6, this)" class="flex items-center gap-4 p-3 border rounded-xl shadow-lg transition-all hover:scale-[1.025] active:scale-[0.97] bg-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash-2 flex-none"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg>
+            <div class="flex-auto text-center"><p class="leading-none font-bold">Nunca</p></div>
+          </button>
+          <button type="button" onclick="selectOptionAndGo(6, this)" class="flex items-center gap-4 p-3 border rounded-xl shadow-lg transition-all hover:scale-[1.025] active:scale-[0.97] bg-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar flex-none"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg>
+            <div class="flex-auto text-center"><p class="leading-none font-bold">Ocasionalmente</p></div>
+          </button>
+          <button type="button" onclick="selectOptionAndGo(6, this)" class="flex items-center gap-4 p-3 border rounded-xl shadow-lg transition-all hover:scale-[1.025] active:scale-[0.97] bg-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-check flex-none"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"></path><path d="m9 9.5 2 2 4-4"></path></svg>
+            <div class="flex-auto text-center"><p class="leading-none font-bold">Em ocasiões especiais</p></div>
+          </button>
+          <button type="button" onclick="selectOptionAndGo(6, this)" class="flex items-center gap-4 p-3 border rounded-xl shadow-lg transition-all hover:scale-[1.025] active:scale-[0.97] bg-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check flex-none"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+            <div class="flex-auto text-center"><p class="leading-none font-bold">Regularmente</p></div>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 6: RESULT / GAUGE SCREEN -->
+    <div id="step-6" class="quiz-step hidden" style="background-color: #FEF9E9;">
+      <div class="min-h-screen flex flex-col animate-fadeIn">
+        <div class="px-5 pt-4 pb-2 text-center">
+          <p style="color: rgb(107, 57, 4);" class="text-sm font-extrabold">Mosteiro de São Bento</p>
+        </div>
+        <div class="px-5 pb-3">
+          <div style="background-image: linear-gradient(to right, rgb(107, 54, 4), rgb(171, 94, 23)); background-color: rgb(17, 17, 17); color: rgb(255, 255, 255);" class="relative flex flex-col overflow-hidden p-5 shadow-lg rounded-xl">
+            <div class="mb-12 flex flex-row items-center justify-between">
+              <div class="text-xs font-bold">
+                <p>Você é um devoto merecedor!</p>
+              </div>
+            </div>
+            <div class="block w-full pb-3">
+              <div style="background-image: linear-gradient(to right, rgba(255, 255, 255, 0.063), rgba(255, 255, 255, 0.584)); background-color: rgb(240, 159, 20);" class="relative h-2.5 rounded-md">
+                <div id="gauge-ball-progress" style="width: 75%;" class="relative animate-ball-progress">
+                  <div class="absolute right-0 top-1.5 h-6 w-6 -translate-y-1/2 translate-x-1/2">
+                    <div style="transform: translateX(calc(-50% + 12px)) translateY(calc(-100% - 11px)); background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);" class="inline-flex rounded-md px-[8px] pb-1.5 pt-1.5">
+                      <div class="rounded-xs whitespace-nowrap text-xs font-normal leading-3">Você está aqui</div>
+                      <span style="border-color: rgb(255, 255, 255);" class="absolute left-1/2 top-full -translate-x-1/2 -translate-y-1/2 rotate-45 border-[5px] border-solid"></span>
+                    </div>
+                    <div style="border-color: rgb(255, 255, 255);" class="absolute top-0 box-border flex h-6 w-6 items-center justify-center rounded-full border-[2px] border-solid">
+                      <span style="background-color: rgb(255, 255, 255);" class="h-3 w-3 rounded-full"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between text-xs font-bold">
+              <div>Pecador</div>
+              <div>Devoto</div>
+              <div>Devoto fiel</div>
+            </div>
+          </div>
+        </div>
+        <div class="px-5 pb-2">
+          <div class="flex flex-col items-center text-center gap-2">
+            <img src="assets/images/kit-aguarde.webp" alt="Medalha de São Bento" width="320" height="320" class="flex-none w-full max-w-[320px] h-auto" />
+            <h2 style="color: rgb(17, 17, 17);" class="text-xl font-extrabold text-balance leading-tight">Você é um Devoto Fiel!</h2>
+            <p style="color: rgb(17, 17, 17);" class="text-xs font-semibold leading-relaxed">Sua devoção foi comprovada! Você agora tem direito a um dos 50 Kits Bênção de São Bento — um presente especial do Mosteiro para fortalecer sua fé.</p>
+          </div>
+        </div>
+        <div class="px-5 pb-2 text-center">
+          <p style="color: rgb(107, 57, 4);" class="text-xs font-extrabold">Clique no botão abaixo para dar continuidade ao seu presente.</p>
+        </div>
+        <div class="px-5 pb-4">
+          <button type="button" onclick="goToStep(8)" style="background-color: rgb(107, 57, 4); color: rgb(255, 255, 255); box-shadow: 0 6px 10px -1px rgba(70, 35, 7, 0.4), 0 4px 6px -1px rgba(70, 35, 7, 0.3);" class="w-full py-5 text-center font-extrabold text-lg rounded-xl transition-all hover:translate-y-[-2px] hover:shadow-lg active:translate-y-0 animate-pulse-button-step6">
+            RESGATAR KIT DE SÃO BENTO
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 8: FINAL OFFER / CHECKOUT SCREEN -->
+    <div id="step-8" class="quiz-step hidden" style="background-color: #FEF9E9;">
+      <div class="min-h-screen flex flex-col animate-fadeIn">
+        <div class="px-5 pt-6 pb-3 text-center">
+          <p style="color: rgb(107, 57, 4);" class="text-base font-extrabold">Mosteiro de São Bento</p>
+        </div>
+        <div class="px-5 pb-3 text-center">
+          <h1 style="color: rgb(107, 57, 4);" class="text-xl font-extrabold text-balance leading-tight">Sua devoção foi comprovada!</h1>
+        </div>
+        <div class="px-5 pb-4 text-center">
+          <p style="color: rgb(107, 57, 4);" class="text-base font-semibold leading-relaxed">
+            Você agora tem direito a um dos <span style="color: rgb(117, 47, 0);" class="font-extrabold">50 Kits Bênção de São Bento</span> — um presente especial do Mosteiro para fortalecer sua fé.
+          </p>
+        </div>
+        <div class="px-5 pb-4 flex justify-center">
+          <div style="aspect-ratio: 9 / 16;" class="w-full max-w-[200px] md:max-w-[240px] relative rounded-xl overflow-hidden shadow-md bg-black">
+            <video id="video-step-8" playsinline webkit-playsinline loop muted autoplay poster="assets/images/poster2.jpg" class="w-full h-full object-cover">
+              <source src="assets/videos/video2.mp4" type="video/mp4">
+              <source src="https://i.imgur.com/GnmcWC0.mp4" type="video/mp4">
+            </video>
+            <div id="unmute-overlay-8" class="vturb-unmute-overlay" onclick="toggleUnmute(8)">
+              <div class="vturb-unmute-pill animate-bounce-subtle">
+                <span class="vturb-pulse-dot"></span>
+                <span>🔊 CLIQUE PARA ATIVAR O SOM</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="px-5 pb-4 text-center">
+          <p style="color: rgb(107, 57, 4);" class="text-sm font-semibold leading-relaxed">
+            Clique no botão abaixo para <span style="color: rgb(117, 47, 0);" class="font-extrabold">resgatar seu presente!</span>
+          </p>
+        </div>
+        <div class="px-5 pb-4">
+          <a id="checkout-btn" href="checkout/" style="background-color: rgb(107, 57, 4); color: rgb(255, 255, 255); box-shadow: 0 4px 6px -1px rgba(70, 35, 7, 0.3), 0 2px 4px -1px rgba(70, 35, 7, 0.2);" class="block w-full py-4 text-center font-extrabold text-base rounded-xl transition-all hover:translate-y-[-2px] hover:shadow-lg active:translate-y-0 animate-pulse-subtle">
+            RESGATAR KIT DE SÃO BENTO
+          </a>
+        </div>
+        <div class="px-5 pb-6 text-center">
+          <p style="color: rgb(107, 57, 4);" class="text-xs font-semibold leading-relaxed">
+            *O kit, composto <span class="font-extrabold">por um terço, água benta e um livro devocional, é gratuito</span>. Para recebê-lo em sua residência, é necessário <span class="font-extrabold">apenas o pagamento do frete, referente aos custos de envio</span>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="js/quiz.js"></script>
+</body>
+</html>
